@@ -12,7 +12,7 @@ searchBtn.addEventListener('click', getSearchedMovies)
 function getSearchedMovies() {
 
     // GET ALL SEARCH RESPONSES FROM INPUT VALUE //
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}`)
     .then(resp => resp.json())
     .then(data => {
         if(data.Search) {
@@ -30,7 +30,7 @@ function getSearchedMovies() {
     // LOOPING OVER imdbIdArray TO SEND REQUEST ON EACH UNIQUE ID //
     .then(() => {
         for(let id of imdbIdArray) {
-            fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
             .then(resp => resp.json())
             .then(data => {
                 imdbIdArray = []
