@@ -5,7 +5,7 @@ const watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
 
 // FETCHING MOVIES BY ID AND RENDERING THEM TO PAGE //
 for(movieId of watchlist) {
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`)
         .then(res => res.json())
         .then(data => {
             placeholderTitle.style.display = "none"
