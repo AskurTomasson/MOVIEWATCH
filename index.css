@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
 }
 
 /* HEADER-SECTION, TITLE & ANCHOR */
@@ -12,7 +13,6 @@ header {
     justify-content: space-around;
     align-items: center;
     height: 25vh;
-    font-family: 'Oswald', sans-serif;
 }
 
 .blured {
@@ -42,21 +42,25 @@ a:visited {
     text-decoration: none;
 }
 
+a:hover {
+    color: yellow;
+}
+
 
 /* SEARCH BAR */
 
 .search-bar {
-    width: 80vw;
+    width: 80%;
     height: 3vh;
     display: flex;
-    position: fixed;
+    position: absolute;
     top: 25%;
     left: 50%;
     transform: translate(-50%, -50%);
     align-items: center;
 }
 
-i {
+.search-bar > i {
     position: absolute;
     margin-left: 10px;
     color: rgb(103, 103, 103);
@@ -98,4 +102,115 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+
+/* CARD */
+
+.card {
+    font-weight: 300;
+    width: 80%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.data-poster {
+    width: 20%;
+}
+
+
+.top-card-div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.mid-card-div {
+    display: flex;
+    gap: 30px;
+    margin-top: 3px;
+    align-items: center;
+}
+
+.data-btn {
+    font-weight: 300;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.data-btn > i {
+    margin-right: 2px;
+}
+
+.data-plot {
+    margin-top: 5px;
+    font-size: 0.9em;
+}
+
+hr {
+    width: 80%;
+}
+
+
+@media (min-width: 900px) {
+    h1 {
+        font-size: 3.9em;
+    }
+
+    a {
+        font-size: 2em;
+    }
+
+    .card {
+        gap: 15px;
+    }
+
+    #search-btn {
+        width: 15%;
+    }
+    
+    .top-card-div {
+        display: flex;
+        gap: 10px;
+    }
+
+    .data-title {
+        font-size: 2.3em;
+    }
+
+    .data-rating {
+        font-size: 1.4em;
+    }
+    
+    .mid-card-div {
+        display: flex;
+        gap: 30px;
+        margin-top: 3px;
+        font-size: 1.4em;
+    }
+    
+    .data-btn {
+        font-size: 0.8em;
+        font-weight: 300;
+        border: none;
+        background: transparent;
+    }
+    
+    .data-btn > i {
+        margin-right: 2px;
+        cursor: pointer;
+    }
+    
+    .data-plot {
+        margin-top: 15px;
+        font-size: 1.1em;
+    }
+    
+    hr {
+        width: 80%;
+    }
 }

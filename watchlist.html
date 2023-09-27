@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Movie watchlist</title>
         <meta name="description" content="watchlist">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="watchlist.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <header>
+            <div class="blured"></div>
+            <h1 class="title">Find your film</h1>
+            <a class="my-watchlist" href="index.html">Search movies</a>
+        </header>
         
-        
+        <main>
+            <div id="movie-render">
+                <h3 id="placeholder-title" class="placeholder">There's nothing here... Go add some movies!</h3>
+            </div>
+        </main>
+
         <script src="watchlist.js" async defer></script>
     </body>
 </html>
