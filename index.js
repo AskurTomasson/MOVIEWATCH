@@ -30,7 +30,7 @@ function getSearchedMovies() {
     // LOOPING OVER imdbIdArray TO SEND REQUEST ON EACH UNIQUE ID //
     .then(() => {
         for(let id of imdbIdArray) {
-            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`)
+            fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${id}&plot=full`)
             .then(resp => resp.json())
             .then(data => {
                 imdbIdArray = []
@@ -42,9 +42,24 @@ function getSearchedMovies() {
                         addToWatchList(e.target.dataset.watchlistbtn)
                         document.getElementById(`${data.imdbID}`).innerHTML = "added"
                     }
+                    if(e.target.dataset.readmorebtn === `${data.imdbID}`) {
+                        document.getElementById(`${data.imdbID}-plot`).innerHTML = `
+                            ${data.Plot} 
+                            <button class="read-more-btn" data-readlessbtn="${data.imdbID}">Read less</button>`
+                    }
+                    if(e.target.dataset.readlessbtn === `${data.imdbID}`) {
+                        document.getElementById(`${data.imdbID}-plot`).innerHTML = `
+                        ${data.Plot.slice(0, 200)} 
+                        <button class="read-more-btn" data-readmorebtn="${data.imdbID}">...Read more</button>`
+                    }
                 })
 
-                renderMovie.innerHTML += `
+                // PLACEHOLDER VARIABLE FOR PLOT //
+                let plot = `
+                    ${data.Plot.slice(0, 200)} 
+                    <button class="read-more-btn" data-readmorebtn="${data.imdbID}">...Read more</button>`
+
+                renderMovie.innerHTML += `  
                     <div class="card">
                         <img class="data-poster" src="${data.Poster}">
                         <div class="card-info">
@@ -58,7 +73,7 @@ function getSearchedMovies() {
                                 <button id="${data.imdbID}" data-watchlistbtn="${data.imdbID}" class="data-btn">
                                 <i class="fa fa-light fa-circle-plus"></i>watchlist</button>
                             </div>
-                            <p class="data-plot">${data.Plot}</p>
+                            <p id="${data.imdbID}-plot" class="data-plot">${plot}</p>
                         </div>
                     </div>
                     <hr>`

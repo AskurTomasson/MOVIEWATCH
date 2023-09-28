@@ -5,7 +5,7 @@ const watchlist = JSON.parse(localStorage.getItem("watchlist")) || []
 
 // FETCHING MOVIES BY ID AND RENDERING THEM TO PAGE //
 for(movieId of watchlist) {
-    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}`)
+    fetch(`https://www.omdbapi.com/?apikey=${apiKey}&i=${movieId}&plot=full`)
         .then(res => res.json())
         .then(data => {
             placeholderTitle.style.display = "none"
@@ -14,7 +14,21 @@ for(movieId of watchlist) {
                 if(e.target.dataset.watchlistbtn === `${data.imdbID}`) {
                     removeFromWatchlist(e.target.dataset.watchlistbtn)
                 }
+                if(e.target.dataset.readmorebtn === `${data.imdbID}`) {
+                    document.getElementById(`${data.imdbID}-plot`).innerHTML = `
+                        ${data.Plot} 
+                        <button class="read-more-btn" data-readlessbtn="${data.imdbID}">Read less</button>`
+                }
+                if(e.target.dataset.readlessbtn === `${data.imdbID}`) {
+                    document.getElementById(`${data.imdbID}-plot`).innerHTML = `
+                    ${data.Plot.slice(0, 200)} 
+                    <button class="read-more-btn" data-readmorebtn="${data.imdbID}">...Read more</button>`
+                }
             })
+
+            let plot = `
+                    ${data.Plot.slice(0, 200)} 
+                    <button class="read-more-btn" data-readmorebtn="${data.imdbID}">...Read more</button>`
                 
             watchlistContainer.innerHTML += `
                     <div class="card">
@@ -30,7 +44,7 @@ for(movieId of watchlist) {
                                 <button data-watchlistbtn="${data.imdbID}" class="data-btn">
                                 <i class="fa fa-light fa-circle-minus"></i>remove</button>
                             </div>
-                            <p class="data-plot">${data.Plot}</p>
+                            <p id="${data.imdbID}-plot" class="data-plot">${plot}</p>
                         </div>
                     </div>
                     <hr>`

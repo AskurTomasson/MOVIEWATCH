@@ -151,6 +151,12 @@ main {
     font-size: 0.9em;
 }
 
+.read-more-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 hr {
     width: 80%;
 }
@@ -212,5 +218,11 @@ hr {
     
     hr {
         width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .data-plot {
+        font-size: 1.3em;
     }
 }
