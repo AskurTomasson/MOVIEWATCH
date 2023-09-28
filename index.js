@@ -1,15 +1,21 @@
 const searchInput = document.getElementById('movie-search')
 const searchBtn = document.getElementById('search-btn')
 const renderMovie = document.getElementById('movie-render')
+const imagePlacerholder = document.getElementById('image-placeholder')
 const apiKey = "5e8f8921"
 let imdbIdArray = []
 
 
 searchBtn.addEventListener('click', getSearchedMovies)
-
-
+searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      getSearchedMovies()
+    }
+})
 
 function getSearchedMovies() {
+
+    imagePlacerholder.style.display = "none"
 
     // GET ALL SEARCH RESPONSES FROM INPUT VALUE //
     fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchInput.value}`)
@@ -71,7 +77,7 @@ function getSearchedMovies() {
                                 <p class="data-runtime">${data.Runtime}</p>
                                 <p class="data-genre">${data.Genre}</p>
                                 <button id="${data.imdbID}" data-watchlistbtn="${data.imdbID}" class="data-btn">
-                                <i class="fa fa-light fa-circle-plus"></i>watchlist</button>
+                                <i class="fa fa-light fa-circle-plus" data-watchlistbtn="${data.imdbID}"></i>watchlist</button>
                             </div>
                             <p id="${data.imdbID}-plot" class="data-plot">${plot}</p>
                         </div>

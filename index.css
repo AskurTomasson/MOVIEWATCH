@@ -51,7 +51,6 @@ a:hover {
 
 .search-bar {
     width: 80%;
-    height: 3vh;
     display: flex;
     position: absolute;
     top: 25%;
@@ -109,9 +108,14 @@ main {
 
 /* CARD */
 
+.image-placeholder {
+    width: 50%;
+    opacity: 0.5;
+}
+
 .card {
     font-weight: 300;
-    width: 80%;
+    width: 90%;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -161,6 +165,11 @@ hr {
     width: 80%;
 }
 
+@media (min-width: 480px) {
+    .card {
+        width: 80%;
+    }
+}
 
 @media (min-width: 900px) {
     h1 {
@@ -224,5 +233,9 @@ hr {
 @media (min-width: 1200px) {
     .data-plot {
         font-size: 1.3em;
+    }
+
+    .image-placeholder {
+        width: 30%;
     }
 }
