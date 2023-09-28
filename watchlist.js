@@ -42,7 +42,7 @@ for(movieId of watchlist) {
                                 <p class="data-runtime">${data.Runtime}</p>
                                 <p class="data-genre">${data.Genre}</p>
                                 <button data-watchlistbtn="${data.imdbID}" class="data-btn">
-                                <i class="fa fa-light fa-circle-minus"></i>remove</button>
+                                <i data-watchlistbtn="${data.imdbID}" class="fa fa-light fa-circle-minus"></i>remove</button>
                             </div>
                             <p id="${data.imdbID}-plot" class="data-plot">${plot}</p>
                         </div>
