@@ -85,6 +85,7 @@ function getSearchedMovies() {
     // CLEAR INPUT AND RENDER //
     searchInput.value = ""
     renderMovie.innerHTML = ""
+    console.log("Emil e min besde man;)")
 }
 
 // THE ID OF THE MOVIE TO ADD IS GIVEN TO US/CONNECTED WITH idOfMovie //
