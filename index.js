@@ -87,11 +87,13 @@ function getSearchedMovies() {
             })
         }
     })
+    .catch(err => {
+        renderMovie.innerHTML = `<p>Something went wrong when fetching your Search :( try again</p>`
+    })
 
     // CLEAR INPUT AND RENDER //
     searchInput.value = ""
     renderMovie.innerHTML = ""
-    console.log("Emil e min besde man;)")
 }
 
 // THE ID OF THE MOVIE TO ADD IS GIVEN TO US/CONNECTED WITH idOfMovie //
